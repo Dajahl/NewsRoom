@@ -55,7 +55,7 @@ for i in r:
 ...     i.ratingAuthor
 ...     i.authorUser.username
 ...
-post = Post.objects.order_by('-rating')[:1]
+post = Post.objects.order_by('-rating')[0]
 for i in post:
 ...     i.dateCreation.strftime("%m/%d/%Y, %H:%M:%S")
 ...     i.author_id
