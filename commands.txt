@@ -55,12 +55,10 @@ for i in r:
 ...     i.ratingAuthor
 ...     i.authorUser.username
 ...
-post = Post.objects.order_by('-rating')[0]
-for i in post:
-...     i.dateCreation.strftime("%m/%d/%Y, %H:%M:%S")
-...     i.author_id
-...     i.title
-...     i.rating
-...     i.preview()
-...
-Post.objects.order_by('-rating')[0].comment_set.all().values('dateCreation.strftime("%m/%d/%Y, %H:%M:%S")', 'commentUser__username', 'rating', 'text')
+d = Post.objects.order_by('-rating')[0]
+d.dateCreation.strftime("%d/%m/%Y, %H:%M:%S")
+d.author_id
+d.title
+d.rating
+d.preview()
+Post.objects.order_by('-rating')[0].comment_set.all().values('dateCreation.strftime("%d/%m/%Y, %H:%M:%S")', 'commentUser__username', 'rating', 'text')
